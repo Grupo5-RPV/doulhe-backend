@@ -6,12 +6,6 @@ import Controller from '../../../presentation/protocols/controller'
 import Validation from '../../../presentation/protocols/validation'
 import { CreateAuctionValidationFactory } from './create-auction-validation-factory'
 
-class SomeValidation implements Validation {
-  validate (input: any): Error {
-    throw new Error('Method not implemented.')
-  }
-}
-
 export const createAuctionFactory = (): Controller => {
   const auctionRepository = new AuctionRepository()
   const auctionItemRepository = new AuctionItemRepository()
