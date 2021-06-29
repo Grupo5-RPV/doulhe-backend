@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, Generated } from 'typeorm'
 import { Auctioneer, AuctionItem } from '../entities'
 
-@Entity('auctions')
+@Entity('Auctions')
 export default class Auction {
     @PrimaryColumn({ type: 'uuid' })
     @Generated('uuid')

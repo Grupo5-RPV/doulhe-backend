@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 import { AuctionItem } from '.'
 
-@Entity('item_providers')
+@Entity('ItemProviders')
 export default class ItemProviders {
     @PrimaryColumn()
     id: string
