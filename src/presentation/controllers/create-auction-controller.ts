@@ -20,13 +20,16 @@ export default class CreateAuctionController implements Controller {
       if (error) {
         return badRequest(error)
       }
-      const { start, end, auctionItems, auctioneerId } = httpRequest.body
+      const { id, start, end, auctionItems, auctioneerId } = httpRequest.body
+
       const auction = await this.createAuction.create({
+        id,
         start,
         end,
         auctionItems,
         auctioneerId
       })
+
       return ok(auction)
     } catch (error) {
       return serverError(error)
