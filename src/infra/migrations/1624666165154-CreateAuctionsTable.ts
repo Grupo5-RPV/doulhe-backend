@@ -3,7 +3,7 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 export class CreateAuctionsTable1624666165154 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(new Table({
-      name: 'auctions',
+      name: 'Auctions',
       columns: [
         {
           name: 'id',
@@ -19,7 +19,7 @@ export class CreateAuctionsTable1624666165154 implements MigrationInterface {
         {
           name: 'end',
           type: 'timestamp',
-          isNullable: false,
+          isNullable: true,
           isUnique: false
         },
         {
@@ -33,6 +33,6 @@ export class CreateAuctionsTable1624666165154 implements MigrationInterface {
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('auctions')
+    await queryRunner.dropTable('Auctions')
   }
 }
