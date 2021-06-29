@@ -3,7 +3,6 @@ import AuctionItemRepository from '../../../infra/repositories/auction-item-repo
 import AuctionRepository from '../../../infra/repositories/auction-repository'
 import CreateAuctionController from '../../../presentation/controllers/create-auction-controller'
 import Controller from '../../../presentation/protocols/controller'
-import Validation from '../../../presentation/protocols/validation'
 import { CreateAuctionValidationFactory } from './create-auction-validation-factory'
 
 export const createAuctionFactory = (): Controller => {
