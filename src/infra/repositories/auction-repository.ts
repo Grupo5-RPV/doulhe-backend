@@ -1,7 +1,7 @@
 import { Auction } from '../../domain/entities'
 import ICreateAuctionParams from '../../domain/usecases/auction/create-auction-params'
-import IAuctionRepository from '../../data/protocols/db/auction-repository'
 import { getRepository } from 'typeorm'
+import IAuctionRepository from 'src/data/protocols/db/auction-repository'
 
 export default class AuctionRepository implements IAuctionRepository {
   async create (createAuctionData: ICreateAuctionParams): Promise<Auction> {

@@ -1,6 +1,6 @@
-import IFindAuctionItem from 'src/domain/usecases/auction-item/find-auction-item'
-import IUpdateAuctionItem from 'src/domain/usecases/auction-item/update-auction-item'
+import { AuctionItem } from 'src/domain/entities'
 
-export default interface IAuctionItemRepository extends IUpdateAuctionItem, IFindAuctionItem {
-
+export default interface IAuctionItemRepository {
+  updateAuctionId (auctionId: string, auctionItemId: string): Promise<AuctionItem>
+  findById (auctionItemId: string): Promise<AuctionItem>
 }
