@@ -1,7 +1,7 @@
 export default interface ICreateAuctionParams {
   id: string;
-  start: Date;
-  end?: Date;
+  start: string;
+  end?: string;
   auctionItems: string[];
   auctioneerId: string;
 }
