@@ -7,11 +7,11 @@ export default class Auction {
     @Generated('uuid')
     id: string
 
-    @Column({ type: 'timestamp', default: new Date() })
-    start: Date
+    @Column({ type: 'timestamp' })
+    start: string
 
     @Column({ type: 'timestamp', nullable: true })
-    end: Date
+    end: string
 
     @Column({ type: 'smallint', default: 0 })
     closed: number
