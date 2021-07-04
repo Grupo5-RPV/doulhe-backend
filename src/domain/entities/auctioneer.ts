@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 import { Auction, AuctionSale } from '.'
 
-@Entity('auctioneers')
+@Entity('Auctioneers')
 export default class Auctioneer {
     @PrimaryColumn({ type: 'varchar' })
     id: string
