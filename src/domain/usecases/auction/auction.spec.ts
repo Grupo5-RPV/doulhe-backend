@@ -132,23 +132,6 @@ describe('Create Auction UC', () => {
       })
   })
 
-  // test('Create auction with not existent auctioneer', async () => {
-  //   const {
-  //     createAuction,
-  //     auctionItemRepositorySpy
-  //   } = makeSut()
-  //   await auctionItemRepositorySpy.createValidData()
-  //   return createAuction.create({
-  //     id: '123',
-  //     start: '2016-06-22 19:10:25',
-  //     end: '2016-06-24 19:10:25',
-  //     auctionItems: ['1'],
-  //     auctioneerId: 'invalid_id'
-  //   }).catch(err => {
-  //     expect(err).toBe(4)
-  //   })
-  // })
-
   test('Create auction with not existent auctioneer', async () => {
     const {
       createAuction,
