@@ -22,7 +22,7 @@ export default class Auctioneer {
     phone: string
 
     @Column({ type: 'timestamp' })
-    joinedAt: Date
+    joinedAt: string
 
     @OneToMany(() => AuctionSale, auctionSale => auctionSale.auctioneer)
     auctionSales: AuctionSale[]
