@@ -1,3 +1,4 @@
+import AuctioneerRepository from '../../../infra/repositories/auctioneer-repository'
 import CreateAuction from '../../../domain/usecases/auction/create-auction'
 import AuctionItemRepository from '../../../infra/repositories/auction-item-repository'
 import AuctionRepository from '../../../infra/repositories/auction-repository'
@@ -8,6 +9,7 @@ import { CreateAuctionValidationFactory } from './create-auction-validation-fact
 export const createAuctionFactory = (): Controller => {
   const auctionRepository = new AuctionRepository()
   const auctionItemRepository = new AuctionItemRepository()
-  const createAuctionUseCase = new CreateAuction(auctionRepository, auctionItemRepository)
+  const auctioneerRepository = new AuctioneerRepository()
+  const createAuctionUseCase = new CreateAuction(auctionRepository, auctionItemRepository, auctioneerRepository)
   return new CreateAuctionController(CreateAuctionValidationFactory(), createAuctionUseCase)
 }
