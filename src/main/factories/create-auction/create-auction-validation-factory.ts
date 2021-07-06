@@ -5,7 +5,7 @@ import Validation from '../../../presentation/protocols/validation'
 
 export const CreateAuctionValidationFactory = () : ValidationComposite => {
   const validations : Validation[] = []
-  for (const field of ['id', 'start', 'auctionItems']) {
+  for (const field of ['start', 'auctionItems']) {
     validations.push(new RequiredFieldValidation(field))
     validations.push(new UndefinedFieldValidation(field))
   }

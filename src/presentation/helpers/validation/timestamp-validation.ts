@@ -1,4 +1,4 @@
-import Validation from 'src/presentation/protocols/validation'
+import Validation from '../../../presentation/protocols/validation'
 import InvalidParamError from '../../errors/invalid-param-error'
 
 export class TimestampValidation implements Validation {
