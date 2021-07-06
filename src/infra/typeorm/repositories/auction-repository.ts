@@ -13,6 +13,6 @@ export default class AuctionRepository implements IAuctionRepository {
       closed: 0
     })
 
-    return await getRepository(Auction).save(auction)
+    return getRepository(Auction).save(auction)
   }
 }

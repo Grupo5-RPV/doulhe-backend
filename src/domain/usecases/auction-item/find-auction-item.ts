@@ -9,7 +9,6 @@ export default class FindAuctionItems {
   }
 
   async findById (auctionItemId: string): Promise<AuctionItem> {
-    const item: AuctionItem = await this.auctionItemsRepository.findById(auctionItemId)
-    return item
+    return this.auctionItemsRepository.findById(auctionItemId)
   }
 }
