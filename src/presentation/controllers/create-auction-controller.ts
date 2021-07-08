@@ -1,5 +1,7 @@
-import ICreateAuction from 'src/domain/usecases/auction/create-auction'
-import { badRequest, serverError, ok } from '../helpers/http-helper'
+import ICreateAuction from '../../domain/usecases/auction/create-auction'
+import InvalidParamError from '../errors/invalid-param-error'
+import MissingParamError from '../errors/missing-param-error'
+import { badRequest, serverError, ok, notFound } from '../helpers/http-helper'
 import Controller from '../protocols/controller'
 import httpRequest from '../protocols/http-request'
 import httpResponse from '../protocols/http-response'
@@ -32,6 +34,12 @@ export default class CreateAuctionController implements Controller {
 
       return ok(auction)
     } catch (error) {
+      if (error instanceof InvalidParamError) {
+        return badRequest(error)
+      }
+      if (error instanceof MissingParamError) {
+        return notFound(error)
+      }
       return serverError(error)
     }
   }

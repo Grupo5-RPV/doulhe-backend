@@ -1,5 +1,5 @@
-import IAuctionItemRepository from 'src/data/protocols/db/auction-item-repository'
-import { AuctionItem } from 'src/domain/entities'
+import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
+import { AuctionItem } from '../../../domain/entities'
 
 export default class UpdateAuctionItem {
   constructor (

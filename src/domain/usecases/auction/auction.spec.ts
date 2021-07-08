@@ -4,7 +4,7 @@ import ICreateAuctionParams from './create-auction-params'
 
 import IAuctionRepository from '../../../data/protocols/db/auction-repository'
 import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
-import IAuctioneerRepository from 'src/data/protocols/db/auctioneer-repository'
+import IAuctioneerRepository from '../../../data/protocols/db/auctioneer-repository'
 
 const makeAuctionRepository = () => {
   class AuctionRepositorySpy implements IAuctionRepository {

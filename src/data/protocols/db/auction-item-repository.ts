@@ -1,4 +1,4 @@
-import { AuctionItem } from 'src/domain/entities'
+import { AuctionItem } from '../../../domain/entities'
 
 export default interface IAuctionItemRepository {
   updateAuctionId (auctionId: string, auctionItemId: string): Promise<AuctionItem>
