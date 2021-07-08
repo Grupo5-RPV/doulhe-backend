@@ -24,6 +24,9 @@ export default class Auctioneer {
     @Column({ type: 'timestamp' })
     joinedAt: string
 
+    @Column()
+    token: string
+
     @OneToMany(() => AuctionSale, auctionSale => auctionSale.auctioneer)
     auctionSales: AuctionSale[]
 
