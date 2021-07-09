@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 import { AuctionBid, AuctionSale } from '../entities'
 
-@Entity('participants')
+@Entity('Participants')
 export default class Participant {
     @PrimaryColumn()
     id: string
@@ -23,6 +23,9 @@ export default class Participant {
 
     @Column()
     phone: string
+
+    @Column()
+    token: string
 
     @OneToMany(() => AuctionBid, auctionBid => auctionBid.participant)
     auctionBids: AuctionBid[]

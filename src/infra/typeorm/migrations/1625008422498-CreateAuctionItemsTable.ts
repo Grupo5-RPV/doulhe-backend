@@ -47,14 +47,6 @@ export class CreateAuctionItemsTable1625003987014 implements MigrationInterface 
         {
           name: 'auctionId',
           type: 'varchar'
-        },
-        {
-          name: 'categoryId',
-          type: 'varchar'
-        },
-        {
-          name: 'itemProviderId',
-          type: 'varchar'
         }
       ]
     }
@@ -66,33 +58,13 @@ export class CreateAuctionItemsTable1625003987014 implements MigrationInterface 
       referencedTableName: 'Auctions',
       onDelete: 'CASCADE'
     }))
-
-    await queryRunner.createForeignKey('AuctionItems', new TableForeignKey({
-      columnNames: ['categoryId'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Categories',
-      onDelete: 'CASCADE'
-    }))
-
-    await queryRunner.createForeignKey('AuctionItems', new TableForeignKey({
-      columnNames: ['itemProviderId'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'ItemProviders',
-      onDelete: 'CASCADE'
-    }))
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
     const table: Table = await queryRunner.getTable('AuctionItems')
     const auctionFk = table.foreignKeys.find(fk => fk.columnNames.indexOf('auctionId') !== -1)
-    const categoryFk = table.foreignKeys.find(fk => fk.columnNames.indexOf('categoryId') !== -1)
-    const itemProviderFk = table.foreignKeys.find(fk => fk.columnNames.indexOf('itemProviderId') !== -1)
     await queryRunner.dropForeignKey('AuctionItems', auctionFk)
-    await queryRunner.dropForeignKey('AuctionItems', categoryFk)
-    await queryRunner.dropForeignKey('AuctionItems', itemProviderFk)
     await queryRunner.dropColumn('AuctionItems', 'auctionId')
-    await queryRunner.dropColumn('AuctionItems', 'categoryId')
-    await queryRunner.dropColumn('AuctionItems', 'itemProviderId')
     await queryRunner.dropTable('AuctionItems')
   }
 }
