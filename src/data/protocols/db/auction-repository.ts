@@ -3,4 +3,6 @@ import ICreateAuctionParams from 'src/domain/usecases/auction/create-auction-par
 
 export default interface IAuctionRepository {
   create(auctionData: ICreateAuctionParams): Promise<Auction>
+  findById(id: string): Promise<Auction>
+  findAll(): Promise<Auction[]>
 }

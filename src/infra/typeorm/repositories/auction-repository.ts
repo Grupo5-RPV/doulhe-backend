@@ -4,6 +4,12 @@ import { getRepository } from 'typeorm'
 import IAuctionRepository from '../../../data/protocols/db/auction-repository'
 
 export default class AuctionRepository implements IAuctionRepository {
+  findById(id: string): Promise<Auction> {
+    return getRepository(Auction).findOne(id)
+  }
+  findAll(): Promise<Auction[]> {
+    return getRepository(Auction).find()
+  }
   async create (createAuctionData: ICreateAuctionParams): Promise<Auction> {
     const auction = getRepository(Auction).create({
       id: createAuctionData.id,
