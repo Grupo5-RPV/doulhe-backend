@@ -15,6 +15,7 @@ export default class ParticipantRepository implements IParticipantRepository{
             phone: participantData.phone,
             auctionBids:[],
             auctionSales:[],
+            token: participantData.token
         })
         return await getRepository(Participant).save(participant)
     }
