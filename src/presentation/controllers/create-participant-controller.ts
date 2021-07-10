@@ -21,7 +21,7 @@ export default class CreateParticipantController implements Controller {
             if (error) {
                 return badRequest(error)
             }
-            const { id, name, username, password, email, address, phone } = httpRequest.body
+            const { id, name, username, password, email, address, phone,token } = httpRequest.body
             const participant = await this.createParticipant.create({
                 id,
                 name,
@@ -29,7 +29,8 @@ export default class CreateParticipantController implements Controller {
                 password,
                 email,
                 address,
-                phone
+                phone,
+                token
             })
             return ok(participant)
         } catch (error) {
