@@ -1,8 +1,8 @@
 import express from 'express'
-import auctionRoutes from './routes/auction-routes'
+import { setupMiddlewares, setupRoutes } from './config'
 
 const app = express()
-app.use(express.json())
-app.use(auctionRoutes)
+setupMiddlewares(app)
+setupRoutes(app)
 
 export default app

@@ -1,4 +1,4 @@
-import '../infra/typeorm/repositories/connect'
+import '../infra/connect'
 import app from './app'
 
 const PORT = 3333
