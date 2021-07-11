@@ -5,26 +5,26 @@ import {
   Participant
 } from '../entities'
 
-@Entity('auction_bids')
+@Entity('AuctionBid')
 export default class AuctionBid {
   @PrimaryColumn()
   id: string
 
   @Column({ type: 'timestamp', name: 'timestamp' })
-  timestamp: Date
+  timestamp: string
 
   @Column({ type: 'decimal' })
   value: number
 
   @ManyToOne(() => Participant, participant => participant.id, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'participant_id' })
+  @JoinColumn({ name: 'participantId' })
   participant: Participant
 
   @Column({ nullable: false })
   participantId: string
 
   @ManyToOne(() => AuctionItem, auctionItem => auctionItem.id, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'auction_item_id' })
+  @JoinColumn({ name: 'auctionItemId' })
   auctionItem: AuctionItem
 
   @Column({ nullable: false })

@@ -21,7 +21,7 @@ export default class Bid {
     if (bid.value == null) {
       throw new InvalidParamError('Nenhum valor foi informado')
     }
-    if (highestBid.value > bid.value) {
+    if (highestBid.value >= bid.value) {
       throw new InvalidParamError(`O valor informado é menor que o maior lance atual de: ${highestBid.value}`)
     } else {
       return this.auctioBid.newBid(bid)

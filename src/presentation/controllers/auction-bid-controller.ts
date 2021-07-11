@@ -23,7 +23,6 @@ export default class CreateAuctionBidController implements Controller {
         return badRequest(error)
       }
       const { id, timestamp, value, auctionItemId, participantId } = httpRequest.body
-
       const auctionBid = await this.createAuctionBid.newBid({
         id,
         timestamp,
@@ -31,7 +30,6 @@ export default class CreateAuctionBidController implements Controller {
         auctionItemId,
         participantId
       })
-
       return ok(auctionBid)
     } catch (error) {
       if (error instanceof InvalidParamError) {
