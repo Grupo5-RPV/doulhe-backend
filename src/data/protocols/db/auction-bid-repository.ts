@@ -1,5 +1,5 @@
 import { AuctionBid } from '../../../domain/entities'
-import IBidParams from 'src/domain/usecases/bid/auction-bid-params'
+import IBidParams from 'src/domain/usecases/auction-bid/auction-bid-params'
 
 export default interface IAuctioBidRepository{
     highestBid (auctionItemId: string): Promise<AuctionBid>

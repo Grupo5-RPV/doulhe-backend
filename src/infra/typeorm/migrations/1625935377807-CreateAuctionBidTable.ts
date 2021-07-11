@@ -21,7 +21,7 @@ export class CreateAuctionBidTable1625935377807 implements MigrationInterface {
           isNullable: false
         },
         {
-          name: 'auctiomItemId',
+          name: 'auctionItemId',
           type: 'varchar',
           isNullable: false
         },

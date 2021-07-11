@@ -5,6 +5,6 @@ import { findAllAuctionFactory } from '../factories/find-auction/find-all-auctio
 import { findByIdAuctionFactory } from '../factories/find-auction/find-by-id-auction-factory'
 const router = Router()
 router.post('/auctions', adaptRoute(createAuctionFactory()))
-router.get('/auctions',adaptRoute(findAllAuctionFactory()))
-router.get('/auctions/:id',adaptRoute(findByIdAuctionFactory()))
+router.get('/auctions', adaptRoute(findAllAuctionFactory()))
+router.get('/auctions/:id', adaptRoute(findByIdAuctionFactory()))
 export default router

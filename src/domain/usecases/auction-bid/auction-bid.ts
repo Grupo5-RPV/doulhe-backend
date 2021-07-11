@@ -23,8 +23,8 @@ export default class Bid {
     }
     if (highestBid.value > bid.value) {
       throw new InvalidParamError(`O valor informado é menor que o maior lance atual de: ${highestBid.value}`)
+    } else {
+      return this.auctioBid.newBid(bid)
     }
-
-    return this.auctioBid.newBid(bid)
   }
 }
