@@ -1,8 +1,8 @@
-import '../infra/connect'
-import app from './app'
+import App from './app'
 
-const PORT = 3333
+import '../infra/typeorm/connect'
 
-app.listen(PORT, () => {
-  console.log(`Server running at localhost:${PORT}`)
-})
+(async () => {
+  const app = new App(3333)
+  await app.run()
+})()
