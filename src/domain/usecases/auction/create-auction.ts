@@ -46,6 +46,6 @@ export default class CreateAuction implements UseCase {
       this.auctionItemRepository.updateAuctionId(auctionData.id, item.id)
     }
 
-    return await this.auctionRepository.create(auctionData)
+    return this.auctionRepository.create(auctionData)
   }
 }

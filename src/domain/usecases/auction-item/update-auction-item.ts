@@ -9,6 +9,6 @@ export default class UpdateAuctionItem {
   }
 
   async updateAuctionId (auctionId: string, auctionItemId: string): Promise<AuctionItem> {
-    return await this.auctionItemsRepository.updateAuctionId(auctionId, auctionItemId)
+    return this.auctionItemsRepository.updateAuctionId(auctionId, auctionItemId)
   }
 }

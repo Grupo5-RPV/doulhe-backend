@@ -24,7 +24,6 @@ export default class CreateParticipant {
       throw new InvalidParamError('E-mail já cadastrado')
     }
     participantData.password = await this.hasher.hash(participantData.password)
-    const participant = await this.participantRepository.create(participantData)
-    return participant
+    return this.participantRepository.create(participantData)
   }
 }

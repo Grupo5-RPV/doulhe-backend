@@ -10,7 +10,6 @@ export default class FindAuctionItems implements UseCase {
   }
 
   async execute (auctionItemId: string): Promise<AuctionItem> {
-    const item: AuctionItem = await this.auctionItemsRepository.findById(auctionItemId)
-    return item
+    return this.auctionItemsRepository.findById(auctionItemId)
   }
 }

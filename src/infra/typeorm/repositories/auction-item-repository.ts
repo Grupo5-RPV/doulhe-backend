@@ -5,12 +5,12 @@ import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repo
 
 export default class AuctionItemRepository implements IAuctionItemRepository {
   async findById (auctionItemId: string): Promise<AuctionItem> {
-    return await getRepository(AuctionItem).findOne({ id: auctionItemId })
+    return getRepository(AuctionItem).findOne({ id: auctionItemId })
   }
 
   async updateAuctionId (auctionId: string, auctionItemId: string): Promise<AuctionItem> {
     const auctionItem = await this.findById(auctionItemId)
     auctionItem.auctionId = auctionId
-    return await getRepository(AuctionItem).save(auctionItem)
+    return getRepository(AuctionItem).save(auctionItem)
   }
 }
