@@ -32,6 +32,7 @@ export default class CreateAuctionBidController implements Controller {
       })
       return ok(auctionBid)
     } catch (error) {
+      console.log(error)
       if (error instanceof InvalidParamError) {
         return badRequest(error)
       }
