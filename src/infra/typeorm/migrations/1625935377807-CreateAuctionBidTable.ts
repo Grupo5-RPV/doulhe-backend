@@ -3,7 +3,7 @@ import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm
 export class CreateAuctionBidTable1625935377807 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(new Table({
-      name: 'AuctionBid',
+      name: 'AuctionBids',
       columns: [
         {
           name: 'id',
@@ -34,14 +34,14 @@ export class CreateAuctionBidTable1625935377807 implements MigrationInterface {
     }
     ))
 
-    await queryRunner.createForeignKey('AuctionBid', new TableForeignKey({
+    await queryRunner.createForeignKey('AuctionBids', new TableForeignKey({
       columnNames: ['auctionItemId'],
       referencedColumnNames: ['id'],
       referencedTableName: 'AuctionItems',
       onDelete: 'CASCADE'
     }))
 
-    await queryRunner.createForeignKey('AuctionBid', new TableForeignKey({
+    await queryRunner.createForeignKey('AuctionBids', new TableForeignKey({
       columnNames: ['participantId'],
       referencedColumnNames: ['id'],
       referencedTableName: 'Participants',
@@ -50,13 +50,13 @@ export class CreateAuctionBidTable1625935377807 implements MigrationInterface {
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
-    const table: Table = await queryRunner.getTable('AuctionBid')
+    const table: Table = await queryRunner.getTable('AuctionBids')
     const auctionItemFk = table.foreignKeys.find(fk => fk.columnNames.indexOf('auctionItemId') !== -1)
     const participantFk = table.foreignKeys.find(fk => fk.columnNames.indexOf('auctionItemId') !== -1)
-    await queryRunner.dropForeignKey('AuctionBid', auctionItemFk)
-    await queryRunner.dropForeignKey('AuctionBid', participantFk)
-    await queryRunner.dropColumn('AuctionBid', 'auctiomItemId')
-    await queryRunner.dropColumn('AuctionBid', 'participantId')
-    await queryRunner.dropTable('AuctionBid')
+    await queryRunner.dropForeignKey('AuctionBids', auctionItemFk)
+    await queryRunner.dropForeignKey('AuctionBids', participantFk)
+    await queryRunner.dropColumn('AuctionBids', 'auctiomItemId')
+    await queryRunner.dropColumn('AuctionBids', 'participantId')
+    await queryRunner.dropTable('AuctionBids')
   }
 }

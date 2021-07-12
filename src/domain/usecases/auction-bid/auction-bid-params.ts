@@ -1,5 +1,5 @@
 export default interface IBidParams {
-    id: string
+    id?: string
     timestamp: string
     value: number
     auctionItemId: string

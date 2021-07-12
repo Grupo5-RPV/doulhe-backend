@@ -6,5 +6,5 @@ export default interface ICreatePaticipantParams {
     email: string
     address: string
     phone: string
-    token: string
+    token?: string
   }

@@ -1,7 +1,7 @@
-import RequiredFieldValidation from 'src/presentation/helpers/validation/required-field-validation'
-import UndefinedFieldValidation from 'src/presentation/helpers/validation/undefined-field-validation'
-import ValidationComposite from 'src/presentation/helpers/validation/validation-composite'
-import Validation from 'src/presentation/protocols/validation'
+import RequiredFieldValidation from '../../../presentation/helpers/validation/required-field-validation'
+import UndefinedFieldValidation from '../../../presentation/helpers/validation/undefined-field-validation'
+import ValidationComposite from '../../../presentation/helpers/validation/validation-composite'
+import Validation from '../../../presentation/protocols/validation'
 
 export const createAuctionBidValidationFactory = () : ValidationComposite => {
   const validations: Validation[] = []

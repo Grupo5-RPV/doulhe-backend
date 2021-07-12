@@ -6,8 +6,8 @@ import IAuctionRepository from '../../../data/protocols/db/auction-repository'
 import { IdGenerator } from '../../../data/protocols/identification/id-generator'
 import { MissingParamError } from '../../../presentation/errors'
 import { UseCase } from '../../../presentation/protocols'
-import { UserRepository } from 'src/data/protocols/db'
-import { Auctioneer } from 'src/domain/entities'
+import { UserRepository } from '../../../data/protocols/db'
+import { Auctioneer } from '../../../domain/entities'
 
 export default class CreateAuction implements UseCase {
   constructor (

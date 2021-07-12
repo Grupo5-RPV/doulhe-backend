@@ -1,13 +1,13 @@
 import AuctionBid from '../../entities/auction-bid'
 import IBidParams from './auction-bid-params'
-import IAuctioBidRepository from 'src/data/protocols/db/auction-bid-repository'
+import IAuctionBidRepository from '../../../data/protocols/db/auction-bid-repository'
 import { IdGenerator } from '../../../data/protocols/identification/id-generator'
 import InvalidParamError from '../../../presentation/errors/invalid-param-error'
 
 export default class Bid {
   constructor (
     private idGenerator: IdGenerator,
-    private auctioBid: IAuctioBidRepository
+    private auctioBid: IAuctionBidRepository
   ) {
     this.idGenerator = idGenerator
     this.auctioBid = auctioBid
