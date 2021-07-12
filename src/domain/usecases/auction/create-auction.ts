@@ -1,4 +1,4 @@
-import Auction from '../../entities/auction'
+import { Auction } from '../../entities'
 import ICreateAuctionParams from '../../../domain/usecases/auction/create-auction-params'
 import InvalidParamError from '../../../presentation/errors/invalid-param-error'
 import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
