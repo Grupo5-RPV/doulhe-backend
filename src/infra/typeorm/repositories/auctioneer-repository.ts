@@ -19,6 +19,6 @@ export default class AuctioneerRepository implements UserRepository<Auctioneer> 
   }
 
   async findById (id: string): Promise<Auctioneer> {
-    return await getRepository(Auctioneer).findOne({ id: id })
+    return getRepository(Auctioneer).findOne({ id: id })
   }
 }

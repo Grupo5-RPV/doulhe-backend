@@ -1,4 +1,4 @@
-import Auction from '../../entities/auction'
+import { Auction } from '../../entities'
 import ICreateAuctionParams from '../../../domain/usecases/auction/create-auction-params'
 import InvalidParamError from '../../../presentation/errors/invalid-param-error'
 import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
@@ -6,8 +6,8 @@ import IAuctionRepository from '../../../data/protocols/db/auction-repository'
 import { IdGenerator } from '../../../data/protocols/identification/id-generator'
 import { MissingParamError } from '../../../presentation/errors'
 import { UseCase } from '../../../presentation/protocols'
-import { UserRepository } from 'src/data/protocols/db'
-import { Auctioneer } from 'src/domain/entities'
+import { UserRepository } from '../../../data/protocols/db'
+import { Auctioneer } from '../../../domain/entities'
 
 export default class CreateAuction implements UseCase {
   constructor (
@@ -46,6 +46,6 @@ export default class CreateAuction implements UseCase {
       this.auctionItemRepository.updateAuctionId(auctionData.id, item.id)
     }
 
-    return await this.auctionRepository.create(auctionData)
+    return this.auctionRepository.create(auctionData)
   }
 }
