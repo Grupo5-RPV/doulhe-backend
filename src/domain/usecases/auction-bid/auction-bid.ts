@@ -30,10 +30,6 @@ export default class Bid {
       throw new InvalidParamError('O participante não existe')
     }
 
-    // if (bid.value == null) {
-    //   throw new InvalidParamError('Nenhum valor foi informado')
-    // }
-
     if (!highestBid) {
       if (this.checkMinimumBidValue(bid.value, itemValue.minimumBid)) {
         throw new InvalidParamError(`o lance deve ser maior que: ${itemValue.minimumBid}`)
@@ -45,19 +41,6 @@ export default class Bid {
     }
 
     return this.auctionBid.newBid(bid)
-
-    // if (!highestBid) {
-    //   if (bid.value <= itemValue.minimumBid) {
-    //     throw new InvalidParamError(`o lance deve ser maior que: ${itemValue.minimumBid}`)
-    //   } else {
-    //     return this.auctionBid.newBid(bid)
-    //   }
-    // }
-    // if (highestBid.value >= bid.value) {
-    //   throw new InvalidParamError(`o lance deve ser maior que: ${highestBid.value}`)
-    // } else {
-    //   return this.auctionBid.newBid(bid)
-    // }
   }
 
   private checkMinimumBidValue (bidValue: number, requiredValue: number): boolean {
