@@ -4,4 +4,5 @@ import ICreatePaticipantParams from '../../../domain/usecases/participant/create
 export default interface IParticipantRepository{
     create(participantData: ICreatePaticipantParams): Promise<Participant>
     findByEmail(email: string) : Promise<Participant>
+    findById(id: string): Promise<Participant>
 }
