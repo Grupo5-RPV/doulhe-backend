@@ -1,5 +1,5 @@
 import express, { Application } from 'express'
-import { bodyParser } from './middlewares'
+import { bodyParser, cors } from './middlewares'
 import * as routes from './routes'
 import connection from '../infra/typeorm/connect'
 
@@ -13,6 +13,7 @@ class App {
 
   private setupMiddlewares (): void {
     this.server.use(bodyParser)
+    this.server.use(cors)
   }
 
   private setupRoutes (): void {
