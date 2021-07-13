@@ -5,7 +5,7 @@ import {
   Participant
 } from '../entities'
 
-@Entity('AuctionBid')
+@Entity('AuctionBids')
 export default class AuctionBid {
   @PrimaryColumn()
   id: string

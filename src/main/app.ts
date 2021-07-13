@@ -1,12 +1,48 @@
-import express from 'express'
-import auctionRoutes from './routes/auction-routes'
-import participantRouter from './routes/participant-router'
-import auctionBidRouter from './routes/auction-bid-routes'
+import express, { Application } from 'express'
+import { bodyParser } from './middlewares'
+import * as routes from './routes'
+import connection from '../infra/typeorm/connect'
 
-const app = express()
-app.use(express.json())
-app.use(auctionRoutes)
-app.use(participantRouter)
-app.use(auctionBidRouter)
+class App {
+  private readonly server: Application
 
-export default app
+  constructor (private readonly port: number) {
+    this.server = express()
+    this.port = port
+  }
+
+  private setupMiddlewares (): void {
+    this.server.use(bodyParser)
+  }
+
+  private setupRoutes (): void {
+    Object.values(routes).forEach(route => this.server.use(route))
+  }
+
+  private async connectToDatabase (): Promise<void> {
+    await connection()
+  }
+
+  private async setupServer (): Promise<void> {
+    await this.connectToDatabase()
+    this.setupMiddlewares()
+    this.setupRoutes()
+  }
+
+  public getServerInstance (): Application {
+    return this.server
+  }
+
+  public async run (): Promise<void> {
+    try {
+      await this.setupServer()
+      this.server.listen(this.port, () => {
+        console.log(`Server Running at http://localhost:${this.port}`)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export default App

@@ -1,22 +1,24 @@
-import ICreateAuction from '../../domain/usecases/auction/create-auction'
+import CreateAuction from '../../domain/usecases/auction/create-auction'
 import InvalidParamError from '../errors/invalid-param-error'
 import MissingParamError from '../errors/missing-param-error'
 import { badRequest, serverError, ok, notFound } from '../helpers/http-helper'
-import Controller from '../protocols/controller'
-import httpRequest from '../protocols/http-request'
-import httpResponse from '../protocols/http-response'
-import Validation from '../protocols/validation'
+import {
+  Controller,
+  HttpRequest,
+  HttpResponse,
+  Validation
+} from '../protocols'
 
 export default class CreateAuctionController implements Controller {
   constructor (
     private validator: Validation,
-    private createAuction: ICreateAuction
+    private createAuction: CreateAuction
   ) {
     this.validator = validator
     this.createAuction = createAuction
   }
 
-  async handle (httpRequest: httpRequest): Promise<httpResponse> {
+  async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const error = this.validator.validate(httpRequest.body)
       if (error) {
@@ -24,7 +26,7 @@ export default class CreateAuctionController implements Controller {
       }
       const { id, start, end, auctionItems, auctioneerId } = httpRequest.body
 
-      const auction = await this.createAuction.create({
+      const auction = await this.createAuction.execute({
         id,
         start,
         end,

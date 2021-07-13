@@ -1,6 +1,6 @@
 import AuctionBid from '../../entities/auction-bid'
 import IBidParams from './auction-bid-params'
-import IAuctioBidRepository from 'src/data/protocols/db/auction-bid-repository'
+import IAuctionBidRepository from '../../../data/protocols/db/auction-bid-repository'
 import { IdGenerator } from '../../../data/protocols/identification/id-generator'
 import InvalidParamError from '../../../presentation/errors/invalid-param-error'
 import IAuctionItemRepository from 'src/data/protocols/db/auction-item-repository'

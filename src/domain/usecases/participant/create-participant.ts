@@ -2,7 +2,7 @@ import { IdGenerator } from '../../../data/protocols/identification/id-generator
 import IParticipantRepository from '../../../data/protocols/db/participant-repository'
 import InvalidParamError from '../../../presentation/errors/invalid-param-error'
 import { Participant } from '../../../domain/entities'
-import Hasher from '../../../data/protocols/criptography/hasher'
+import Hasher from '../../../data/protocols/cryptography/hasher'
 import ICreatePaticipantParams from './create-participant-params'
 
 export default class CreateParticipant {
@@ -23,9 +23,7 @@ export default class CreateParticipant {
     if (participantExistis) {
       throw new InvalidParamError('E-mail já cadastrado')
     }
-
     participantData.password = await this.hasher.hash(participantData.password)
-    const participant = await this.participantRepository.create(participantData)
-    return participant
+    return this.participantRepository.create(participantData)
   }
 }

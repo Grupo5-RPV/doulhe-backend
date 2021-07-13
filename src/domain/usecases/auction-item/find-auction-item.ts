@@ -1,14 +1,15 @@
+import { UseCase } from '../../../presentation/protocols'
 import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
 import { AuctionItem } from '../../../domain/entities'
 
-export default class FindAuctionItems {
+export default class FindAuctionItems implements UseCase {
   constructor (
     private auctionItemsRepository: IAuctionItemRepository
   ) {
     this.auctionItemsRepository = auctionItemsRepository
   }
 
-  async findById (auctionItemId: string): Promise<AuctionItem> {
+  async execute (auctionItemId: string): Promise<AuctionItem> {
     return this.auctionItemsRepository.findById(auctionItemId)
   }
 }
