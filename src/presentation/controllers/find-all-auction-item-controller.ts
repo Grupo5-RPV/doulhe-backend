@@ -16,7 +16,6 @@ export default class FindAllAuctionItemsController implements Controller {
       const items = await this.findAllAuctionItemUseCase.execute()
       return ok(items)
     } catch (error) {
-      console.log(error)
       return serverError(error)
     }
   }

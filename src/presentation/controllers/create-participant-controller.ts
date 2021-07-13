@@ -34,7 +34,6 @@ export default class CreateParticipantController implements Controller {
       })
       return ok(participant)
     } catch (error) {
-      console.log(error)
       if (error instanceof InvalidParamError) {
         return badRequest(error)
       }

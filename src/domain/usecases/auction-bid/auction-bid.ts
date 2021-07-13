@@ -19,7 +19,6 @@ export default class Bid {
   async newBid (bid : IBidParams): Promise<AuctionBid> {
     bid.id = this.idGenerator.createUUID()
     const itemValue = await this.auctionItem.findById(bid.auctionItemId)
-    console.log(itemValue.minimumBid)
     const highestBid = await this.auctionBid.highestBid(bid.auctionItemId)
     if (bid.value == null) {
       throw new InvalidParamError('Nenhum valor foi informado')

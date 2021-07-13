@@ -38,10 +38,9 @@ class App {
     try {
       await this.setupServer()
       this.server.listen(this.port, () => {
-        console.log(`Server Running at http://localhost:${this.port}`)
+        console.log("Running server")
       })
     } catch (error) {
-      console.log(error)
     }
   }
 }

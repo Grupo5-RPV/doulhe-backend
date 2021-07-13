@@ -35,7 +35,6 @@ export default class CreateAuctionItemController implements Controller {
 
       return ok(item)
     } catch (error) {
-      console.log(error)
       return serverError(error)
     }
   }
