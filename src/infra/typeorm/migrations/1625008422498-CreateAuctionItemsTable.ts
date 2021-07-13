@@ -46,7 +46,8 @@ export class CreateAuctionItemsTable1625003987014 implements MigrationInterface 
         },
         {
           name: 'auctionId',
-          type: 'varchar'
+          type: 'varchar',
+          isNullable: true
         }
       ]
     }
