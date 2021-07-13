@@ -33,6 +33,8 @@ export default class CreateAuction implements UseCase {
 
     for (const auctionItemId of auctionData.auctionItems) {
       const item = await this.auctionItemRepository.findById(auctionItemId)
+      console.log(item)
+
       if (!item) {
         throw new InvalidParamError('O item informado não existe')
       }
@@ -41,11 +43,13 @@ export default class CreateAuction implements UseCase {
       }
     }
 
+    const auction = await this.auctionRepository.create(auctionData)
+
     for (const auctionItemId of auctionData.auctionItems) {
       const item = await this.auctionItemRepository.findById(auctionItemId)
-      this.auctionItemRepository.updateAuctionId(auctionData.id, item.id)
+      await this.auctionItemRepository.updateAuctionId(auctionData.id, item.id)
     }
 
-    return this.auctionRepository.create(auctionData)
+    return auction
   }
 }

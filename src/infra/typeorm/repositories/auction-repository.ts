@@ -12,7 +12,7 @@ export default class AuctionRepository implements IAuctionRepository {
     return getRepository(Auction).find()
   }
 
-  async create (createAuctionData: ICreateAuctionParams): Promise<Auction> {
+  create (createAuctionData: ICreateAuctionParams): Promise<Auction> {
     const auction = getRepository(Auction).create({
       id: createAuctionData.id,
       start: createAuctionData.start,
