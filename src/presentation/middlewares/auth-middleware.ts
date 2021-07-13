@@ -14,8 +14,8 @@ class AuthMiddleware implements Middleware {
   async handle (request: AuthMiddlewareParams): Promise<HttpResponse> {
     try {
       let { token } = request
-      token = this.parseBearerToken(token)
       if (token) {
+        token = this.parseBearerToken(token)
         const user = await this.userType.findByToken(token)
         if (user) {
           return ok(user)
@@ -23,6 +23,7 @@ class AuthMiddleware implements Middleware {
       }
       return forbidden(new AccessDeniedError())
     } catch (error) {
+      console.log(error)
       return serverError(error)
     }
   }

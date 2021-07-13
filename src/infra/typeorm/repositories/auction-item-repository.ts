@@ -2,8 +2,13 @@ import { getRepository } from 'typeorm'
 
 import { AuctionItem } from '../../../domain/entities'
 import IAuctionItemRepository from '../../../data/protocols/db/auction-item-repository'
+import ICreateAuctionItemParams from '../../../domain/usecases/auction-item/create-auction-item-params'
 
 export default class AuctionItemRepository implements IAuctionItemRepository {
+  async create (data: ICreateAuctionItemParams) {
+    return getRepository(AuctionItem).save(data)
+  }
+
   findAll (): Promise<AuctionItem[]> {
     return getRepository(AuctionItem).find()
   }
